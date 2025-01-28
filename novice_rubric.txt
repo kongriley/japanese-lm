@@ -1,0 +1,82 @@
+Rubrics for Novice Learners (Genki Vol. 1, LL.1-12, JLPT N5)
+Characteristics:
+	•	Focus on foundational grammar and vocabulary.
+	•	Simple sentence structures and limited contexts (e.g., self-introduction, daily activities, shopping).
+	•	Heavy reliance on hiragana, katakana, and basic kanji (~100 characters).
+
+Rubrics for Novice Learners:
+	1.	Can introduce themselves and provide basic personal information.
+	2.	Can express likes, dislikes, and preferences using ～が好き/嫌いです.
+	3.	Can ask and answer simple yes/no questions (e.g., ～ですか, ～ますか).
+	4.	Can use basic verbs in present and past forms (e.g., ～ます, ～ました).
+	5.	Can describe location using ～の前/後/中.
+	6.	Can use ～てください for polite requests.
+	7.	Can talk about daily routines with simple time expressions.
+	8.	Can count objects using basic counters (e.g., ～個, ～枚, ～人).
+	9.	Can describe physical and emotional states using adjectives.
+	10.	Can read and write sentences using hiragana, katakana, and basic kanji.
+
+List of Grammar Patterns for Novice Learners (Exclusive to Genki Vol. 1, JLPT N5):
+	1.	～です/～ます (basic statements)
+	2.	～ません/～でした/～ませんでした (negatives and past tense)
+	3.	これ/それ/あれ/どれ (demonstratives)
+	4.	ここ/そこ/あそこ/どこ (location demonstratives)
+	5.	～も (also)
+	6.	～の (possession and description)
+	7.	～か (question particle)
+	8.	～は/～が (topic and subject markers)
+	9.	～を (object marker)
+	10.	～で (location and means marker)
+	11.	～に (time and destination marker)
+	12.	～へ (direction marker)
+	13.	～から/～まで (from/to)
+	14.	～と (and/with)
+	15.	～がいます/～があります (existence of people/objects)
+	16.	～たいです (want to do something)
+	17.	～ましょう/～ましょうか (let’s/shall we?)
+	18.	～てください (polite request)
+	19.	～てもいいですか (asking for permission)
+	20.	～てはいけません (prohibition)
+	21.	～まえに (before doing something)
+	22.	～あとで (after doing something)
+	23.	～が好き/嫌い/上手/下手です (likes/dislikes/skills)
+	24.	～と思います (I think ~)
+	25.	～と言います (someone says ~)
+	26.	～からです (reason/cause)
+	27.	～くて/～で (adjective and noun connectors)
+	28.	～すぎます (too much/excessive)
+	29.	～でしょう (probably)
+	30.	～ています (ongoing actions and states)
+
+Can-do Statements (30 items):
+1.	Can introduce themselves and exchange basic personal information (name, age, 
+nationality).
+	2.	Can ask for and tell the time and date.
+	3.	Can ask for and give simple directions.
+	4.	Can order food at a restaurant using simple sentences.
+	5.	Can talk about their daily routine using basic verbs in the present tense.
+	6.	Can describe their immediate surroundings using simple adjectives.
+	7.	Can ask and answer simple questions about family members.
+	8.	Can understand and use numbers (1-10,000) in practical contexts.
+	9.	Can ask about the location of objects or places using basic positional expressions.
+	10.	Can use simple counters for people, objects, and days.
+	11.	Can express likes and dislikes using ～が好き/嫌いです.
+	12.	Can invite someone to do something using ～ませんか.
+	13.	Can accept or decline an invitation politely.
+	14.	Can ask about prices and make purchases in stores.
+	15.	Can describe weather using simple expressions (e.g., 今日は暑いです).
+	16.	Can use basic past-tense forms to talk about completed actions.
+	17.	Can use ～てください to make polite requests.
+	18.	Can give or respond to simple instructions.
+	19.	Can describe locations of objects using ～の前/後/中, etc.
+	20.	Can ask someone’s preference (e.g., どちらが好きですか).
+	21.	Can talk about simple plans or intentions (e.g., 明日行きます).
+	22.	Can understand simple classroom instructions.
+	23.	Can ask for clarification or repetition in simple terms (e.g., もう一度お願いします).
+	24.	Can talk about transportation and ask about travel schedules.
+	25.	Can use ～たいです to express desires.
+	26.	Can use basic conjunctions like そして and でも to connect ideas.
+	27.	Can apologize or thank someone using appropriate expressions.
+	28.	Can read and understand hiragana, katakana, and basic kanji (~100 characters).
+	29.	Can identify and write basic kanji related to days, numbers, and basic verbs.
+	30.	Can comprehend short, simple texts with familiar vocabulary.
