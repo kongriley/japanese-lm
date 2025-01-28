@@ -1,5 +1,8 @@
 # %%
-from app import ModelApp, QwenModel, OpenRouterApp
+import sys
+sys.path.append('../..')
+
+from app import ModelApp, GemmaModel, QwenModel, OpenRouterApp
 
 with open('free_response_queries.txt') as f:
     queries = f.readlines()
@@ -13,7 +16,7 @@ You are an assistant for a Japanese learning course, at the novice level. Respon
 Always use Japanese and do not respond in English.
 """
 
-with open('novice_rubric.txt') as f:
+with open('../../novice_rubric.txt') as f:
     novice_rubric = f.read()
 
 novice_evaluator_prompt = """
@@ -22,8 +25,8 @@ Your job is to evaluate the answer to a query regarding the Japanese language. T
 
 # %%
 
-qwen_model = QwenModel()
-teacher_app = ModelApp(qwen_model, novice_system_prompt, {"max_tokens": 256})
+gemma_model = GemmaModel()
+teacher_app = ModelApp(gemma_model, novice_system_prompt, {"max_new_tokens": 256})
 evaluator_app = OpenRouterApp("gpt-4o", novice_evaluator_prompt)
 
 # %% 
@@ -41,10 +44,15 @@ for query in queries:
 # %%
 
 import os
-os.makedirs(f'results/{teacher_app.model.name}', exist_ok=True)
+os.makedirs(f'../../results/free_response/{teacher_app.model.name}', exist_ok=True)
+
+from datetime import datetime
+
+# Get the current time and format it as a string
+current_time = datetime.now().strftime("%Y%m%d%H%M")
 
 # Write results to file
-with open(f'results/{teacher_app.model.name}/free_response_results.txt', 'w') as f:
+with open(f'../../results/free_response/{teacher_app.model.name}/results_{current_time}.txt', 'w') as f:
     for i, (query, response, judgement, score) in enumerate(zip(queries, responses, judgements, scores)):
         f.write(f"Query {i+1}: {query}\n")
         f.write(f"Response: {response}\n") 
