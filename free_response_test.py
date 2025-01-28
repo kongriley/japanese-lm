@@ -40,8 +40,11 @@ for query in queries:
 
 # %%
 
+import os
+os.makedirs(f'results/{teacher_app.model.name}', exist_ok=True)
+
 # Write results to file
-with open(f'results/{teacher_app.model.name}_free_response_results.txt', 'w') as f:
+with open(f'results/{teacher_app.model.name}/free_response_results.txt', 'w') as f:
     for i, (query, response, judgement, score) in enumerate(zip(queries, responses, judgements, scores)):
         f.write(f"Query {i+1}: {query}\n")
         f.write(f"Response: {response}\n") 
