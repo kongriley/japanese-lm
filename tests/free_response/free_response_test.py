@@ -49,7 +49,7 @@ os.makedirs(f'../../results/free_response/{teacher_app.model.name}', exist_ok=Tr
 from datetime import datetime
 
 # Get the current time and format it as a string
-current_time = datetime.now().strftime("%Y%m%d%H%M")
+current_time = datetime.now().strftime("%Y%m%d-%H%M%S")
 
 # Write results to file
 with open(f'../../results/free_response/{teacher_app.model.name}/results_{current_time}.txt', 'w') as f:
