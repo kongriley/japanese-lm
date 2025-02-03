@@ -15,20 +15,31 @@ client = OpenAI(
     api_key=openrouter_api_key,
 )
 
+class App:
+    """
+    Base class for all apps.
+    """
+    def __init__(self, model, system_prompt, model_args=None):
+        self.model = model
+        self.system_prompt = system_prompt
+        if model_args is None:
+            model_args = {}
+        self.model_args = model_args
 
-class ModelApp:
+        self.model_name = "model"
+
+    def run(self, query) -> str:
+        raise NotImplementedError
+
+class ModelApp(App):
     """
     Uses a model to run a query.
     `self.model` must implement `__call__()`, which takes a formatted message list and returns a string response.
     """
 
     def __init__(self, model, system_prompt, model_args=None):
-        self.model = model
-        self.system_prompt = system_prompt
-
-        if model_args is None:
-            model_args = {}
-        self.model_args = model_args
+        super().__init__(model, system_prompt, model_args)
+        self.model_name = model.name
 
     def run(self, query) -> str:
         messages = [
@@ -38,18 +49,17 @@ class ModelApp:
         return self.model(messages, **self.model_args)
 
 
-class OpenRouterApp:
+class OpenRouterApp(App):
     """
     Uses OpenRouter API to run a query using a model name.
     """
 
-    def __init__(self, model_name, system_prompt, model_args=None):
-        self.model = model_name
-        self.system_prompt = system_prompt
-
-        if model_args is None:
-            model_args = {}
-        self.model_args = model_args
+    def __init__(self, model_name, system_prompt, model_args=None, custom_name=None):
+        super().__init__(model_name, system_prompt, model_args)
+        if custom_name is None:
+            self.model_name = model_name
+        else:
+            self.model_name = custom_name
 
     def run(self, query) -> str:
         messages = [
@@ -90,7 +100,7 @@ class GemmaModel:
 
     def __call__(self, messages, **kwargs):
         messages = self.preprocess(messages)
-        return self.model(messages, return_full_text=False, **kwargs)[0][
+        return self.model(messages, return_full_text=False, **self.model_args, **kwargs)[0][
             "generated_text"
         ]
 
@@ -101,13 +111,16 @@ class QwenModel:
             "Qwen/Qwen2.5-1.5B-Instruct", tokenizer_config={"eos_token": "<|im_end|>"}
         )
         self.name = "qwen"
+        self.model_args = {
+            "max_tokens": 256,
+        }
 
     def __call__(self, messages, **kwargs):
         messages = self.tokenizer.apply_chat_template(
             messages, tokenize=False, add_generation_prompt=True
         )
         return generate(
-            self.model, self.tokenizer, prompt=messages, verbose=True, **kwargs
+            self.model, self.tokenizer, prompt=messages, verbose=True, **self.model_args, **kwargs
         )
 
 
@@ -119,11 +132,14 @@ if __name__ == "__main__":
             •   	Use only hiragana, katakana, and basic kanji (~100 characters).
 
     Always use Japanese and do not respond in English.
-    """
 
-    gemma_model = GemmaModel()
-    qwen_model = QwenModel()
-    teacher_app = ModelApp(qwen_model, novice_system_prompt, {"max_tokens": 256})
+
+    """
+    max_tokens = 1024
+    r1_distill_model = OpenRouterApp("deepseek/deepseek-r1-distill-qwen-32b", novice_system_prompt, {"max_tokens": max_tokens}, custom_name="r1_distill")
+    # gemma_model = GemmaModel()
+    # qwen_model = QwenModel()
+    teacher_app = r1_distill_model
 
     query = """
     ３〜５文で自己紹介をしてください。

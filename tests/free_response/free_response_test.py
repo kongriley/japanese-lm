@@ -25,15 +25,17 @@ Your job is to evaluate the answer to a query regarding the Japanese language. T
 
 # %%
 
-gemma_model = GemmaModel()
-teacher_app = ModelApp(gemma_model, novice_system_prompt, {"max_new_tokens": 256})
+teacher_app = OpenRouterApp("gpt-4o", novice_system_prompt)
 evaluator_app = OpenRouterApp("gpt-4o", novice_evaluator_prompt)
 
 # %% 
+
+from tqdm import tqdm
+
 responses = []
 judgements = []
 scores = []
-for query in queries:
+for query in tqdm(queries):
     response = teacher_app.run(query)
     judgement = evaluator_app.run(f"Query: {query}\nResponse: {response}")
     score = judgement.split('\n')[-1]
@@ -44,7 +46,7 @@ for query in queries:
 # %%
 
 import os
-os.makedirs(f'../../results/free_response/{teacher_app.model.name}', exist_ok=True)
+os.makedirs(f'../../results/free_response/{teacher_app.model_name}', exist_ok=True)
 
 from datetime import datetime
 
@@ -52,7 +54,7 @@ from datetime import datetime
 current_time = datetime.now().strftime("%Y%m%d-%H%M%S")
 
 # Write results to file
-with open(f'../../results/free_response/{teacher_app.model.name}/results_{current_time}.txt', 'w') as f:
+with open(f'../../results/free_response/{teacher_app.model_name}/results_{current_time}.txt', 'w') as f:
     for i, (query, response, judgement, score) in enumerate(zip(queries, responses, judgements, scores)):
         f.write(f"Query {i+1}: {query}\n")
         f.write(f"Response: {response}\n") 
