@@ -1,12 +1,11 @@
+import csv
 import MeCab
 wakati = MeCab.Tagger("-Owakati")
-tokens = wakati.parse("時代の流れでコンピュータや携帯電話などのテクノロジーの構造がだんだん不思議になっています。").split()
 
-# import kagglehub
-import csv
+input_str = "絵本を含めた本からの言語情報は，子供の言語発達における重要なインプットである．"
 
-# Download latest version
-# path = kagglehub.dataset_download("robinpourtaud/jlpt-words-by-level")
+tokens = wakati.parse(input_str).split()
+
 d = {}
 with open("jlpt_vocab.csv") as csvfile:
     reader = csv.reader(csvfile)
@@ -17,7 +16,6 @@ print(tokens)
 num_tokens = 0
 avg = 0
 for token in tokens:
-    # print(token)
     if token in d:
         print(token, d[token])
         num_tokens += 1
