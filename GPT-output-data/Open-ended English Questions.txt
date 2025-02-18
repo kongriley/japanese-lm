@@ -1,0 +1,101 @@
+
+	1.	What is your favorite food? Why do you like it?
+	2.	What is your favorite song? How do you feel when you listen to it?
+	3.	What is your favorite movie? What kind of story is it?
+	4.	What is your favorite book? What is its story like?
+	5.	What is your hobby? Why do you like it?
+	6.	Tell me about your family.
+	7.	What kind of person is your friend?
+	8.	What is your school like? What do you do there?
+	9.	Where is your favorite place? What is it like?
+	10.	Tell me about your country. What do you like about it?
+	11.	Tell me about your everyday life. What is your morning like?
+	12.	How do you spend your evenings?
+	13.	What do you do with your friends?
+	14.	What kind of music do you listen to? How does it make you feel?
+	15.	What kind of clothes do you wear? What colors are they?
+	16.	What is your favorite season? What do you do during that season?
+	17.	What kind of sports do you like? What do you enjoy about them?
+	18.	What is your dream? Why do you have that dream?
+	19.	Where would you like to travel? What is that place like?
+	20.	What kind of animal do you like? What do you like about it?
+	21.	What do you eat for breakfast? What does it taste like?
+	22.	What do you eat for lunch? What is it like?
+	23.	What do you eat for dinner? What is it like?
+	24.	What do you do on weekends? Why do you do that?
+	25.	What is your best friend like? What do you do together?
+	26.	What is your city like? What do you like about it?
+	27.	What kind of present do you like? When would you like to receive it?
+	28.	What color do you like? How do you feel when you see it?
+	29.	What kind of flower do you like? What does it smell like?
+	30.	What kind of weather do you like? What do you do on a day with that weather?
+	31.	What kind of dreams do you have? What are they about?
+	32.	How do you spend your favorite day off? What do you do on that day?
+	33.	What are you studying? Why do you enjoy it?
+	34.	What kind of house would you like to live in? What makes it nice?
+	35.	What kind of picture do you like? What colors does it have?
+	36.	Where do you relax? How does that place make you feel?
+	37.	What kind of path do you like to walk on? What does it look like?
+	38.	What kind of sound do you like? What does it sound like?
+	39.	What kind of scent do you like? How does it make you feel?
+	40.	What kind of sweets do you like? What do they taste like?
+	41.	What kind of vehicle do you like? What do you like about it?
+	42.	What kind of TV drama do you like? What is it about?
+	43.	What kind of manga do you read? What is it about?
+	44.	What kind of television programs do you watch? What are they about?
+	45.	What kind of games do you play? How do you enjoy them?
+	46.	What kind of anime do you like? What is it about?
+	47.	What would you like to study? What makes it interesting?
+	48.	What kind of diary do you write? What do you write in it?
+	49.	What kind of future do you envision? What is it like?
+	50.	What kind of musical instrument do you like? What sound does it make?
+	51.	What kind of store do you like? What do you buy there?
+	52.	What would you like to do on a trip? What kind of memories do you want to create?
+	53.	What is something fun you experienced recently?
+	54.	Tell me about what happened today.
+	55.	What do you want to do tomorrow?
+	56.	What is the most fun activity for you?
+	57.	Which place do you most want to visit? Why do you want to go there?
+	58.	What is your favorite animal? What do you like about it?
+	59.	What makes you excited every day?
+	60.	If you were to describe yourself in one word, what would it be?
+	61.	What is your favorite class at school? Why do you like it?
+	62.	What is the thing you most want to do on the weekend?
+	63.	What kind of job do you want to have in the future?
+	64.	What do you do at home on your days off?
+	65.	What kind of letter would you like to write to a friend?
+	66.	What do you like about your country?
+	67.	What was your dream when you were a child?
+	68.	What would you like to say to your future self?
+	69.	If you were to cook your favorite dish, what would you make?
+	70.	What is the one thing you want the most right now? Why do you want it?
+	71.	Tell me about a dream you had recently.
+	72.	Where is your favorite place? What do you do there?
+	73.	What is something new you started recently?
+	74.	What challenges do you take on every day?
+	75.	What kind of person do you want to be?
+	76.	What promises do you make with your friends?
+	77.	Do you have any special hobbies? Why do you like them?
+	78.	What kind of festival do you like? What makes it fun?
+	79.	What kind of souvenir do you like? How do you feel when you receive one?
+	80.	What color clothes do you like? How does that color make you feel?
+	81.	What do you do first when you wake up in the morning?
+	82.	What do you do before going to sleep at night?
+	83.	When you play outside, what do you want to do?
+	84.	When you go shopping, what kind of things do you look for?
+	85.	What is your favorite color of water? How is it beautiful?
+	86.	Please tell me about something you made yourself.
+	87.	What is the most fun thing to do with your friends?
+	88.	What kind of sounds do you hear in your favorite place?
+	89.	What kind of music do you listen to when you relax at home?
+	90.	What sport would you like to try? Why?
+	91.	In the future, which country would you like to live in?
+	92.	How do you spend time with your family?
+	93.	What is your favorite way to spend your day off?
+	94.	How do you relieve stress?
+	95.	What are your good qualities?
+	96.	What is your favorite time of day? Why?
+	97.	What is the most impressive thing you have seen in a shop?
+	98.	What did you talk about with your friends recently?
+	99.	What kind of day do you think tomorrow will be?
+	100. What dream would you like to achieve in the future?
