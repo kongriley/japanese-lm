@@ -98,28 +98,58 @@ for question in tqdm(questions[start_idx:]):
             f.write(json.dumps({"question": question, "response": response}) + "\n")
 
 # %%
-eval_model_name = "gemini-2.0-flash"
-eval_model_type = "intermediate"
-eval_save_path = f"results/open-ended/{eval_model_name}/{eval_model_type}_responses.jsonl"
+models = ["gpt-4o-mini", "gemini-2.0-flash"]
+types = ["novice", "intermediate"]
+eval_fns = {
+    "avg": lambda scores: sum(scores) / len(scores),
+    "min": lambda scores: min(scores),
+}
 
-eval_fn = lambda scores: min(scores)
+eval_results = {}
 
-with open(eval_save_path, "r") as f:
-    data = [json.loads(line) for line in f]
-    results = defaultdict(list)
+for eval_model in models:
+    for eval_type in types:
+        for eval_fn_name, eval_fn in eval_fns.items():
+            eval_save_path = f"results/open-ended/{eval_model}/{eval_type}_responses.jsonl"
 
-    for row in data:
-        question, response = row["question"], row["response"]
-        scores = generate_difficulty_scores(response)
-        if len(scores) > 0:
-            results[question].append(eval_fn(scores))
+            with open(eval_save_path, "r") as f:
+                data = [json.loads(line) for line in f]
+                results = defaultdict(list)
 
-    # print({
-    #     question: sum(scores) / len(scores)
-    #     for question, scores in results.items()
-    # })
-    # print total average
-    print(sum([sum(scores) / len(scores) for scores in results.values()]) / len(results))
+                for row in data:
+                    question, response = row["question"], row["response"]
+                    scores = generate_difficulty_scores(response)
+                    if len(scores) > 0:
+                        results[question].append(eval_fn(scores))
+
+                eval_results[eval_model, eval_type, eval_fn_name] = sum([sum(scores) / len(scores) for scores in results.values()]) / len(results)
+
+# Visualize results
+# Create a bar plot comparing the results
+import matplotlib.pyplot as plt
+import numpy as np
+
+fig, axes = plt.subplots(1, len(eval_fns), figsize=(12, 5))
+x = np.arange(len(models))
+width = 0.35
+
+for i, (eval_fn_name, eval_fn) in enumerate(eval_fns.items()):
+    novice_scores = [eval_results[model, "novice", eval_fn_name] for model in models]
+    intermediate_scores = [eval_results[model, "intermediate", eval_fn_name] for model in models]
+    
+    ax = axes[i]
+    ax.bar(x - width/2, novice_scores, width, label='Novice')
+    ax.bar(x + width/2, intermediate_scores, width, label='Intermediate')
+    
+    ax.set_ylabel('Score')
+    ax.set_title(f'{eval_fn_name.capitalize()} Score')
+    ax.set_xticks(x)
+    ax.set_xticklabels(models, rotation=45)
+    ax.legend()
+
+plt.tight_layout()
+plt.show()
+
     
     
 # %%
