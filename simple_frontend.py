@@ -2,10 +2,6 @@ import streamlit as st
 import requests
 import os
 import datetime
-from dotenv import load_dotenv
-
-# Load environment variables
-load_dotenv()
 
 # Load system prompts
 prompts = {
@@ -14,7 +10,7 @@ prompts = {
 }
 
 # Configure OpenRouter API
-openrouter_api_key = os.environ.get("OPENROUTER_API_KEY")
+openrouter_api_key = st.secrets["OPENROUTER_API_KEY"]
 openrouter_url = "https://openrouter.ai/api/v1/chat/completions"
 
 st.title("Japanese Assistant")
