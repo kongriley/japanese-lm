@@ -2,7 +2,6 @@ import streamlit as st
 import requests
 import os
 import datetime
-import json
 from dotenv import load_dotenv
 
 # Load environment variables
