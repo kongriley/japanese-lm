@@ -22,7 +22,8 @@ def get_formatted_conversation(level):
     conversation_text += f"Exported: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
     
     for msg in st.session_state.messages:
-        conversation_text += f"[{msg['role'].upper()}]\n{msg['content']}\n\n"
+        if msg["role"] != "system":
+            conversation_text += f"[{msg['role'].upper()}]\n{msg['content']}\n\n"
     
     return conversation_text
 
@@ -83,7 +84,7 @@ if user_input:
         st.write(user_input)
         
     # Get assistant response
-    with st.chat_message("assistant"), st.empty():
+    with st.chat_message("assistant"):
         payload = {
             "model": "openai/gpt-4o",
             "messages": st.session_state.messages,
