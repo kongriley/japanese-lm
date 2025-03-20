@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import openai
 import datetime
+from pytz import timezone
 
 # Load system prompts
 prompts = {
@@ -19,7 +20,7 @@ st.title("Japanese Assistant")
 # Function to generate formatted conversation text
 def get_formatted_conversation(level):
     conversation_text = f"Japanese Assistant Conversation ({level})\n"
-    conversation_text += f"Exported: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+    conversation_text += f"Exported: {datetime.datetime.now(timezone('US/Eastern')).strftime('%Y-%m-%d %H:%M:%S')}\n\n"
     
     for msg in st.session_state.messages:
         if msg["role"] != "system":
