@@ -1,6 +1,6 @@
 import streamlit as st
 import requests
-import os
+import openai
 import datetime
 
 # Load system prompts
@@ -11,7 +11,8 @@ prompts = {
 
 # Configure OpenRouter API
 openrouter_api_key = st.secrets["OPENROUTER_API_KEY"]
-openrouter_url = "https://openrouter.ai/api/v1/chat/completions"
+openrouter_url = "https://openrouter.ai/api/v1/"
+client = openai.OpenAI(api_key=openrouter_api_key, base_url=openrouter_url)
 
 st.title("Japanese Assistant")
 
@@ -25,7 +26,6 @@ def get_formatted_conversation(level):
     
     return conversation_text
 
-# Sidebar for level selection
 with st.sidebar:
     st.header("Settings")
     level = st.radio(
@@ -83,27 +83,17 @@ if user_input:
         st.write(user_input)
         
     # Get assistant response
-    with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
-            try:
-                headers = {
-                    "Authorization": f"Bearer {openrouter_api_key}",
-                    "Content-Type": "application/json"
-                }
+    with st.chat_message("assistant"), st.empty():
+        payload = {
+            "model": "openai/gpt-4o",
+            "messages": st.session_state.messages,
+            "stream": True
+        }
+        
+        stream = client.chat.completions.create(**payload)
+        response = st.write_stream(stream)
+            
+    # Add assistant response to chat history
+    st.session_state.messages.append({"role": "assistant", "content": response})
+    
                 
-                payload = {
-                    "model": "openai/gpt-4o",
-                    "messages": st.session_state.messages
-                }
-                
-                response = requests.post(openrouter_url, headers=headers, json=payload)
-                response_data = response.json()
-                assistant_response = response_data["choices"][0]["message"]["content"]
-                
-                # Display response
-                st.write(assistant_response)
-                
-                # Add assistant response to chat history
-                st.session_state.messages.append({"role": "assistant", "content": assistant_response})
-            except Exception as e:
-                st.error(f"Error: {str(e)}")
