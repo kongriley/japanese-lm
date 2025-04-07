@@ -18,3 +18,4 @@ results/*
 
 audio/*
 .streamlit/secrets.toml
+SpeechSuper-API-Samples/
