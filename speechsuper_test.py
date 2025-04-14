@@ -154,10 +154,11 @@ scores = []
 
 for i in tqdm(range(1, 14)):
     audioPath = f"audio/L6_soundfiles/file_{i}.wav"
-    refText = "日本には、苦しい時の神頼みという言葉がある。何か苦しい事や困った事があると神様、仏様、どうか助けて下さいと言って一生懸命お願いするけれど、何もない時は、神様や仏様のことはあまり考えていないという意味である。日本人の生活を見ると、色々な宗教的習慣や行事があることに気がつくだろう。まず、お正月には初詣といって、人々は神社やお寺にお参りに行く。"
+    refText = "日本には、苦しい時の神頼みという葉がある。何か苦しい事や困った事があると神様、仏様、どうか助けて下さいと言って一生懸命お願いするけれど、何もない時は、神様や仏様のことはあまり考えていないという意味である。日本人の生活を見ると、色々な宗教的習慣や行事があることに気がつくだろう。まず、お正月には初詣といって、人々は神社やお寺にお参りに行く。"
     res = get_speech_evaluation(audioPath, refText)
     res_json = json.loads(res.text)
-    parse_speech_evaluation(res_json)
+    parse_speech_evaluation(res_json, word_by_word=True, phoneme_by_phoneme=True)
+    exit()
     scores.append(res_json["result"]["overall"]/10)
 
 
